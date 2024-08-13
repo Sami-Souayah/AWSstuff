@@ -13,15 +13,17 @@ import time
 
 
 dbname = get_database()
+location = './chromedriver'
 
 
+service = Service(executable_path=location)
 chromeoptions = Options()
 chromeoptions.add_argument("--headless")
 chromeoptions.add_argument("--disable-gpu")
 chromeoptions.add_argument("--disable-dev-shm-usage")
 chromeoptions.add_argument('--no-sandbox')
 chromeoptions.add_argument("--disable-images")
-driver = webdriver.Chrome(options=chromeoptions)
+driver = webdriver.Chrome(options=chromeoptions, service=service)
 
 
 
